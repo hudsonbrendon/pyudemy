@@ -10,6 +10,10 @@ class Udemy(object):
         self.client_secret = client_secret
         self.URL = 'https://www.udemy.com/api-2.0/'
 
+    def _pagination(self, pages):
+        if pages > 100:
+            raise ValueError('the maximum number of pages is 100')
+
     @property
     def _authentication(self):
         auth = HTTPBasicAuth(self.client_id, self.client_secret)
