@@ -12,7 +12,7 @@ class Udemy(object):
 
     def _pagination(self, pages):
         if pages > 100:
-            raise ValueError('the maximum number of pages is 100')
+            raise ValueError('The maximum number of pages is 100.')
         return pages
 
     @property
