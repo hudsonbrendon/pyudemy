@@ -13,7 +13,9 @@ class UdemyTestCase(unittest.TestCase):
         self.udemy = Udemy(self.client_id, self.client_secret)
 
     def test_get_url(self):
-        self.assertEqual(self.udemy._get_url('test'), 'https://www.udemy.com/api-2.0/test')
+        self.assertEqual(self.udemy._get_url('courses'), 'https://www.udemy.com/api-2.0/courses/?')
+        self.assertEqual(self.udemy._get_url('courses', page=1, page_size=1, search='javascript'),
+                         'https://www.udemy.com/api-2.0/courses/?page=1&page_size=1&search=javascript&')
 
     def test_authentication(self):
         self.assertEqual(self.udemy._authentication.username, self.client_id)
