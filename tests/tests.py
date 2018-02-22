@@ -53,6 +53,28 @@ class UdemyTestCase(unittest.TestCase):
         self.assertEqual(self.udemy.course_detail(12345), data)
 
     @requests_mock.Mocker()
+    def test_public_curriculum(self, requests_mock):
+        url = 'https://www.udemy.com/api-2.0/courses/12345/public-curriculum-items/'
+        data = {
+            'public_curriculum': 'Public Curriculum',
+        }
+        requests_mock.get(url, json=data)
+        self.assertEqual(self.udemy.public_curriculum(12345), data)
+
+    @requests_mock.Mocker()
+    def test_public_curriculum_with_kwargs(self, requests_mock):
+        url = 'https://www.udemy.com/api-2.0/courses/12345/public-curriculum-items/'
+        kwargs = {
+            'page': 1,
+            'page_size': 1
+        }
+        data = {
+            'public_curriculum': 'Public Curriculum',
+        }
+        requests_mock.get(url, json=data)
+        self.assertEqual(self.udemy.public_curriculum(12345, **kwargs), data)
+
+    @requests_mock.Mocker()
     def test_course_reviews(self, request_mock):
         url = 'https://www.udemy.com/api-2.0/courses/12345/reviews/'
         data = {
@@ -73,6 +95,7 @@ class UdemyTestCase(unittest.TestCase):
         }
         request_mock.get(url, json=data)
         self.assertEqual(self.udemy.course_reviews(12345, **kwargs), data)
+
 
 
 if __name__ == '__main__':
