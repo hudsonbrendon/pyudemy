@@ -24,18 +24,42 @@ class Udemy(object):
         return auth
 
     def courses(self, **kwargs):
+        '''
+        Returns list of courses.
+
+        To see the list of accepted parameters go to:
+        https://www.udemy.com/developers/methods/get-courses-list/
+        '''
         courses = requests.get(self._get_url('courses', **kwargs), auth=self._authentication).json()
         return courses
 
     def course_detail(self, id):
+        '''
+        Returns course with specified pk.
+
+        To see the list of accepted parameters go to:
+        https://www.udemy.com/developers/methods/get-courses-detail/
+        '''
         course = requests.get(self._get_url('courses/{}'.format(id)), auth=self._authentication).json()
         return course
 
     def public_curriculum(self, id, **kwargs):
+        '''
+        Returns list of curriculum items.
+
+        To see the list of accepted parameters go to:
+        https://www.udemy.com/developers/methods/get-publiccurriculum-list/
+        '''
         public_curriculum = requests.get(self._get_url('courses/{}/public-curriculum-items'.format(id)), auth=self._authentication).json()
         return public_curriculum
 
     def course_reviews(self, id, **kwargs):
+        '''
+        Returns list of curriculum items.
+
+        To see the list of accepted parameters go to:
+        https://www.udemy.com/developers/methods/get-publiccurriculum-list/
+        '''
         reviews = requests.get(self._get_url('courses/{}/reviews'.format(id), **kwargs),
                                auth=self._authentication).json()
         return reviews
