@@ -94,3 +94,13 @@ or
 ```python
 >>> udemy.course_reviews(<id>, page=1, page_size=1)
 ```
+
+# Dependencies
+
+- Python 3.5
+- [Pipenv](https://github.com/kennethreitz/pipenv)
+- [requests](http://docs.python-requests.org/en/latest/)
+
+# License
+
+[MIT](http://en.wikipedia.org/wiki/MIT_License)
