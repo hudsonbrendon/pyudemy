@@ -44,6 +44,15 @@ class UdemyTestCase(unittest.TestCase):
         self.assertEqual(self.udemy.courses(**kwargs), data)
 
     @requests_mock.Mocker()
+    def test_courses_detail(self, requests_mock):
+        url = 'https://www.udemy.com/api-2.0/courses/12345/'
+        data = {
+            'course': 'Test Course',
+        }
+        requests_mock.get(url, json=data)
+        self.assertEqual(self.udemy.course_detail(12345), data)
+
+    @requests_mock.Mocker()
     def test_course_reviews(self, request_mock):
         url = 'https://www.udemy.com/api-2.0/courses/12345/reviews/'
         data = {
