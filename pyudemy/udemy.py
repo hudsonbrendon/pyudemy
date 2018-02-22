@@ -26,3 +26,8 @@ class Udemy(object):
     def courses(self, **kwargs):
         courses = requests.get(self._get_url('courses', **kwargs), auth=self._authentication).json()
         return courses
+
+    def course_reviews(self, id, **kwargs):
+        reviews = requests.get(self._get_url('courses/{}/reviews'.format(id), **kwargs),
+                               auth=self._authentication).json()
+        return reviews

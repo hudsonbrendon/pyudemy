@@ -30,6 +30,41 @@ class UdemyTestCase(unittest.TestCase):
         request_mock.get(url, json=data)
         self.assertEqual(self.udemy.courses(), data)
 
+    @requests_mock.Mocker()
+    def test_courses_with_kwargs(self, request_mock):
+        url = 'https://www.udemy.com/api-2.0/courses/?page=1&page_size=1'
+        kwargs = {
+            'page': 1,
+            'page_size': 1,
+        }
+        data = {
+            'course': 'Test Course',
+        }
+        request_mock.get(url, json=data)
+        self.assertEqual(self.udemy.courses(**kwargs), data)
+
+    @requests_mock.Mocker()
+    def test_course_reviews(self, request_mock):
+        url = 'https://www.udemy.com/api-2.0/courses/12345/reviews/'
+        data = {
+            'review': 'Test Review',
+        }
+        request_mock.get(url, json=data)
+        self.assertEqual(self.udemy.course_reviews(12345), data)
+
+    @requests_mock.Mocker()
+    def test_course_reviews_with_kwargs(self, request_mock):
+        url = 'https://www.udemy.com/api-2.0/courses/12345/reviews/?page=1&page_size=1'
+        kwargs = {
+            'page': 1,
+            'page_size': 1
+        }
+        data = {
+            'review': 'Test Review',
+        }
+        request_mock.get(url, json=data)
+        self.assertEqual(self.udemy.course_reviews(12345, **kwargs), data)
+
 
 if __name__ == '__main__':
     unittest.main()
