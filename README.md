@@ -84,7 +84,7 @@ or
 Returns list of curriculum items.
 
 To see the list of accepted parameters go to:
-[https://www.udemy.com/developers/methods/get-publiccurriculum-list/](https://www.udemy.com/developers/methods/get-publiccurriculum-list/)
+[https://www.udemy.com/developers/methods/get-coursereviews-list/](https://www.udemy.com/developers/methods/get-coursereviews-list/)
 
 ```python
 >>> udemy.course_reviews(<id>)
