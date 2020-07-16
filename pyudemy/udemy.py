@@ -19,7 +19,7 @@ class Udemy(object):
                 
                 #This 2 lines of code helps us to deal with spaces present in the arguements.
                 if (type(value) == str):
-                    value = quote(value, safe='&')
+                    value = quote(value)
                     
                 url += '{}={}&'.format(param, value)
         return url
