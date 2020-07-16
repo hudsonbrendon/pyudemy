@@ -1,5 +1,6 @@
 import operator
 import requests
+from urllib.parse import quote
 
 from requests.auth import HTTPBasicAuth
 
@@ -15,6 +16,11 @@ class Udemy(object):
         url = self._URL.format(resource)
         for param, value in sorted(kwargs.items(), key=operator.itemgetter(0)):
             if value:
+                
+                #This 2 lines of code helps us to deal with spaces present in the arguements.
+                if (type(value) == str):
+                    value = quote(value, safe='&')
+                    
                 url += '{}={}&'.format(param, value)
         return url
 
