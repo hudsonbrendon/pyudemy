@@ -7,19 +7,39 @@ from requests.auth import HTTPBasicAuth
 
 class Udemy(object):
     def __init__(self, client_id: str, client_secret: str):
+        """Initialize Udemy class.
+        Access token is required to make requests to the API.
+        https://www.udemy.com/instructor/account/api/
+
+        Args:
+            client_id (str): Your client id.
+            client_secret (str): Your client secret.
+        """
         self.client_id = client_id
         self.client_secret = client_secret
-        self._URL = "https://www.udemy.com/api-2.0/{}/?"
+        self._URL = "https://www.udemy.com/api-2.0/"
 
-    def _get_url(self, resource, **kwargs) -> str:
-        url = self._URL.format(resource)
+    def _get_url(self, resource: str, **kwargs) -> str:
+        """Returns url for specified resource.
+
+        Args:
+            resource (str): Resource name.
+
+        Returns:
+            str: Url for specified resource.
+        """
+        url = f"{self._URL}{resource}/?"
         for param, value in sorted(kwargs.items(), key=operator.itemgetter(0)):
-            if value:
-                url += f"{param}={quote(value)}&"
+            url += f"{param}={value}&"
         return url
 
     @property
-    def _authentication(self):
+    def _authentication(self) -> HTTPBasicAuth:
+        """Returns authentication object.
+
+        Returns:
+            HTTPBasicAuth: Authentication object.
+        """
         auth = HTTPBasicAuth(self.client_id, self.client_secret)
         return auth
 
@@ -66,7 +86,7 @@ class Udemy(object):
             dict: List of curriculum items.
         """
         public_curriculum = requests.get(
-            self._get_url("courses/{}/public-curriculum-items".format(id)),
+            self._get_url(f"courses/{id}/public-curriculum-items"),
             auth=self._authentication,
         ).json()
         return public_curriculum
@@ -84,7 +104,7 @@ class Udemy(object):
             dict: List of reviews items.
         """
         reviews = requests.get(
-            self._get_url("courses/{}/reviews".format(id), **kwargs),
+            self._get_url(f"courses/{id}/reviews", **kwargs),
             auth=self._authentication,
         ).json()
         return reviews
