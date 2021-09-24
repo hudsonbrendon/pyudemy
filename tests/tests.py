@@ -1,18 +1,11 @@
 import unittest
 
 import requests_mock
-from decouple import config
 from pyudemy import Udemy
 
-from results import (
-    COURSE_DETAIL,
-    COURSE_REVIEWS,
-    COURSES,
-    COURSES_REVIEWS_WITH_PARAMS,
-    COURSES_WITH_PARAMS,
-    PUBLIC_CURRICULUM,
-    PUBLIC_CURRICULUM_WITH_PARAMS,
-)
+from results import (COURSE_DETAIL, COURSE_REVIEWS, COURSES,
+                     COURSES_REVIEWS_WITH_PARAMS, COURSES_WITH_PARAMS,
+                     PUBLIC_CURRICULUM, PUBLIC_CURRICULUM_WITH_PARAMS)
 
 
 class UdemyTestCase(unittest.TestCase):
