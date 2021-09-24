@@ -7,8 +7,6 @@
 
 Simple integrate of API udemy.com with python
 
-![Logo](logo.png)
-
 # Quick start
 
 ```bash
@@ -97,9 +95,8 @@ or
 
 # Dependencies
 
-- Python 3.5
+- Python >=3.8
 - [Pipenv](https://github.com/kennethreitz/pipenv)
-- [requests](http://docs.python-requests.org/en/latest/)
 
 # License
 
