@@ -9,4 +9,4 @@ install:
  - "pipenv run pip install https://github.com/hudsonbrendon/pyudemy/archive/master.zip"
 
 # command to run tests
-script: ./runtests
+script: make test
