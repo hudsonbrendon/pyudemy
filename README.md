@@ -92,6 +92,13 @@ or
 ```python
 >>> udemy.course_reviews(<id>, page=1, page_size=1)
 ```
+# Controlling return Data
+
+You can now control the return data from the API using a list of dictionaries passed under a parameter called "fields".
+![image](https://user-images.githubusercontent.com/33434582/160966081-b1f67fe2-48db-45d1-b102-95ef90e7c0cb.png)
+
+
+For more info check Use of Fields and Field Lists at https://www.udemy.com/developers/affiliate/
 
 # Dependencies
 

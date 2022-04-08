@@ -29,8 +29,18 @@ class Udemy(object):
             str: Url for specified resource.
         """
         url = f"{self._URL}{resource}/?"
+        field_string = ""
         for param, value in sorted(kwargs.items(), key=operator.itemgetter(0)):
-            url += f"{param}={value}&"
+            if param != "fields":
+                if "category" in param and "&" in value: #Patches unsupported categories that use &
+                    value = value.replace(' & ', '+%26+')
+                url += f"{param}={value}&"
+            else:
+                for ele in value:
+                    object_name = ele['Object']
+                    params = ','.join(filter(None,[ele['Setting'], ','.join(ele['Additions']), ','.join(['-'+x for x in ele['Minus']])])) #Can now use a fields parameter to control return info
+                    field_string += f"fields[{object_name}]={params}&"
+        url+=field_string
         return url
 
     @property
