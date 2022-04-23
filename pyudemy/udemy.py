@@ -32,15 +32,26 @@ class Udemy(object):
         field_string = ""
         for param, value in sorted(kwargs.items(), key=operator.itemgetter(0)):
             if param != "fields":
-                if "category" in param and "&" in value: #Patches unsupported categories that use &
-                    value = value.replace(' & ', '+%26+')
+                if (
+                    "category" in param and "&" in value
+                ):  # Patches unsupported categories that use &
+                    value = value.replace(" & ", "+%26+")
                 url += f"{param}={value}&"
             else:
                 for ele in value:
-                    object_name = ele['Object']
-                    params = ','.join(filter(None,[ele['Setting'], ','.join(ele['Additions']), ','.join(['-'+x for x in ele['Minus']])])) #Can now use a fields parameter to control return info
+                    object_name = ele["Object"]
+                    params = ",".join(
+                        filter(
+                            None,
+                            [
+                                ele["Setting"],
+                                ",".join(ele["Additions"]),
+                                ",".join(["-" + x for x in ele["Minus"]]),
+                            ],
+                        )
+                    )  # Can now use a fields parameter to control return info
                     field_string += f"fields[{object_name}]={params}&"
-        url+=field_string
+        url += field_string
         return url
 
     @property
