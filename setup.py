@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="pyudemy",
-    version="1.0.1",
+    version="1.0.4",
     author="Hudson Brendon",
     author_email="contato.hudsonbrendon@gmail.com",
     description="A small example package",
