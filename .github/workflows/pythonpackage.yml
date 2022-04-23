@@ -1,26 +1,28 @@
-name: Python package
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: Python application
 
 on:
   push:
-    branches: [ master, develop ]
+    branches: [ master ]
   pull_request:
-    branches: [ master, develop ]
+    branches: [ master ]
+
+permissions:
+  contents: read
 
 jobs:
   build:
 
     runs-on: ubuntu-latest
-    strategy:
-      max-parallel: 4
-      matrix:
-        python-version: [3.8]
 
     steps:
-    - uses: actions/checkout@v1
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v1
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v3
       with:
-        python-version: ${{ matrix.python-version }}
+        python-version: "3.8"
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pipenv
@@ -31,8 +33,3 @@ jobs:
     - name: Test with unittest
       run: |
         make dev
-    - name: Send Push Notification
-      uses: techulus/push-github-action@v0.0.2
-      env:
-        API_KEY: ${{ secrets.PUSH_API_KEY }}
-        MESSAGE: "Build Success!"
