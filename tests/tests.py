@@ -1,7 +1,6 @@
 import unittest
 
 import requests_mock
-from decouple import config
 from pyudemy import Udemy
 
 from results import (
