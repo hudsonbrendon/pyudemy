@@ -1,9 +1,8 @@
-from conftest import courses_with_params
 from pyudemy import Udemy, __version__
 
 
 def test_version():
-    assert __version__ == "1.0.6"
+    assert __version__ == "1.0.7"
 
 
 class TestUdemy:
