@@ -12,12 +12,6 @@ Simple integrate of API udemy.com with python
 ```bash
 $ pip install pyudemy
 ```
-or
-
-```bash
-$ python setup.py install
-```
-
 # Authentication
 
 To make any calls to Udemy REST API, you will need to create an API client. API client consists of a bearer token, which is connected to a user account on Udemy.
