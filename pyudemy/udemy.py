@@ -126,7 +126,7 @@ class Udemy(object):
             dict: List of curriculum items.
         """
         return requests.get(
-            self._get_full_url(f"courses/{id}/public-curriculum-items"),
+            self._get_full_url(f"courses/{id}/public-curriculum-items/?", **kwargs),
             auth=self._authentication,
         ).json()
 
