@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pyudemy"
-version = "1.0.7"
+version = "1.0.8"
 description = "Simple integrate of API udemy.com with python"
 authors = ["Hudson Brendon <contato.hudsonbrendon@gmail.com>"]
 license = "MIT"
