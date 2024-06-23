@@ -1,9 +1,9 @@
-from pyudemy import Udemy
+from pyudemy import UdemyAffiliate
 
 client_id = "CLIENT_ID"
 client_secret = "CLIENT_SECRET"
 
-udemy = Udemy(client_id, client_secret)
+udemy = UdemyAffiliate(client_id, client_secret)
 
 print(udemy.courses())
 
