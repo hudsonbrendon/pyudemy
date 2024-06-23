@@ -1,11 +1,17 @@
 import pytest
 
 from pyudemy import Udemy
+from pyudemy.udemy import UdemyAffiliate
 
 
 @pytest.fixture
 def udemy():
     return Udemy("test", "test")
+
+
+@pytest.fixture
+def udemy_affiliate():
+    return UdemyAffiliate("test", "test")
 
 
 @pytest.fixture
