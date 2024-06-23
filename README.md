@@ -24,7 +24,7 @@ With your key in hand, it's time to authenticate, so run:
 ```python
 >>> from pyudemy import Udemy
 
->>> udemy = Udemy(<CLIENT_ID>, <CLIENT_SECRET>)
+>>> udemy = UdemyAffiliate(<CLIENT_ID>, <CLIENT_SECRET>)
 ```
 
 # Courses

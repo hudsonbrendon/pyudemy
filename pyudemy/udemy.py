@@ -4,8 +4,7 @@ import requests
 from requests.auth import HTTPBasicAuth
 
 
-class Udemy(object):
-
+class Udemy:
     __BASE_URL = "https://www.udemy.com/api-2.0/"
 
     def __init__(self, client_id: str, client_secret: str) -> None:
@@ -30,7 +29,7 @@ class Udemy(object):
         return self.__BASE_URL
 
     @property
-    def client_id(self):
+    def client_id(self) -> str:
         """Returns the client id
 
         Returns:
@@ -89,6 +88,8 @@ class Udemy(object):
         """
         return HTTPBasicAuth(self.client_id, self.client_secret)
 
+
+class UdemyAffiliate(Udemy):
     def courses(self, **kwargs) -> dict:
         """Returns list of courses.
         To see the list of accepted parameters go to:
@@ -100,7 +101,7 @@ class Udemy(object):
         return requests.get(self._get_full_url("courses", **kwargs), auth=self._authentication).json()
 
     def course_detail(self, id: int) -> dict:
-        """Returns course with specified pk.
+        """Returns course with specified id.
 
         To see the list of accepted parameters go to:
         https://www.udemy.com/developers/methods/get-courses-detail/
@@ -109,7 +110,7 @@ class Udemy(object):
             id (int): Course id.
 
         Returns:
-            dict: Course with specified pk.
+            dict: Course with specified id.
         """
         return requests.get(self._get_full_url(f"courses/{id}"), auth=self._authentication).json()
 
