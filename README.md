@@ -93,11 +93,6 @@ You can now control the return data from the API using a list of dictionaries pa
 
 For more info check Use of Fields and Field Lists at https://www.udemy.com/developers/affiliate/
 
-# Dependencies
-
-- Python >=3.8
-- [Pipenv](https://github.com/kennethreitz/pipenv)
-
 # License
 
 [MIT](http://en.wikipedia.org/wiki/MIT_License)
