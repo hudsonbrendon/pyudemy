@@ -93,7 +93,7 @@ class UdemyAffiliate(Udemy):
     def courses(self, **kwargs) -> dict:
         """Returns list of courses.
         To see the list of accepted parameters go to:
-        https://www.udemy.com/developers/methods/get-courses-list/
+        https://www.udemy.com/developers/affiliate/methods/get-courses-list/
 
         Returns:
             dict: List of courses.
@@ -104,7 +104,7 @@ class UdemyAffiliate(Udemy):
         """Returns course with specified id.
 
         To see the list of accepted parameters go to:
-        https://www.udemy.com/developers/methods/get-courses-detail/
+        https://www.udemy.com/developers/affiliate/methods/get-courses-detail/
 
         Args:
             id (int): Course id.
@@ -118,7 +118,7 @@ class UdemyAffiliate(Udemy):
         """Returns list of curriculum items.
 
         To see the list of accepted parameters go to:
-        https://www.udemy.com/developers/methods/get-publiccurriculum-list/
+        https://www.udemy.com/developers/affiliate/methods/get-publiccurriculum-list/
 
         Args:
             id (int): Curriculum id.
@@ -127,7 +127,7 @@ class UdemyAffiliate(Udemy):
             dict: List of curriculum items.
         """
         return requests.get(
-            self._get_full_url(f"courses/{id}/public-curriculum-items/?", **kwargs),
+            self._get_full_url(f"courses/{id}/public-curriculum-items", **kwargs),
             auth=self._authentication,
         ).json()
 
@@ -135,7 +135,7 @@ class UdemyAffiliate(Udemy):
         """Returns list of reviews items.
 
         To see the list of accepted parameters go to:
-        https://www.udemy.com/developers/methods/get-publiccurriculum-list/
+        https://www.udemy.com/developers/affiliate/methods/get-coursereviews-list/
 
         Args:
             id (int): Course id.
