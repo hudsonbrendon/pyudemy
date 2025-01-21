@@ -15,7 +15,7 @@ requests = "^2.28.1"
 [tool.poetry.dev-dependencies]
 pytest = "^8.3.4"
 requests-mock = "^1.10.0"
-pre-commit = "^2.20.0"
+pre-commit = "^4.1.0"
 isort = "^5.10.1"
 black = "^24.3.0"
 
