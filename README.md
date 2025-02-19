@@ -6,6 +6,11 @@
 
 Simple integrate of API udemy.com with python
 
+
+# NOTICE
+
+**Access to the Affiliate API on Udemy has been discontinued as of January 1, 2025. To access the Affiliate API, please see our instructions on how to join the [Udemy Affiliate Program](https://partnersupport.udemy.com/hc/en-us/articles/360048655014-How-do-I-Join-the-Udemy-Affiliate-Program/).**
+
 # Quick start
 
 ```bash
